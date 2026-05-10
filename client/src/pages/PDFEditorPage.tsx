@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
-import { ArrowLeft, ChevronLeft, ChevronRight, FileUp, Type, Pen, Download, Loader2, Eraser } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, FileUp, Type, Pen, Download, Loader2, Eraser, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import UploadZone from "@/components/UploadZone";
 import { toast } from "sonner";
@@ -335,14 +335,24 @@ export default function PDFEditorPage() {
 
       <main className="flex-1 bg-gray-100 flex flex-col overflow-hidden relative">
         {!file ? (
-          <div className="flex-1 flex items-center justify-center p-4">
-            <div className="max-w-2xl w-full bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+          <div className="flex-1 flex flex-col items-center justify-center p-4">
+            <div className="max-w-2xl w-full bg-white p-8 rounded-2xl shadow-sm border border-gray-200 mb-6">
               <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Carga un documento para empezar a editar</h2>
               <UploadZone
                 onFilesSelected={handleFilesSelected}
                 acceptedFormats={[".pdf"]}
                 multiple={false}
               />
+            </div>
+            
+            <div className="max-w-2xl w-full bg-blue-50/50 border border-blue-100 rounded-xl p-5 flex gap-4 text-blue-900 shadow-sm">
+              <AlertTriangle className="w-6 h-6 text-blue-500 shrink-0 mt-0.5" />
+              <div>
+                <h4 className="font-bold text-sm mb-1">Nota sobre la edición de texto original</h4>
+                <p className="text-sm text-blue-800/80 leading-relaxed">
+                  Por limitaciones de seguridad y privacidad en el navegador, no es posible seleccionar y modificar el texto original del PDF. Sin embargo, puedes usar la herramienta <strong>Ocultar Texto</strong> para tapar visualmente cualquier error y usar la herramienta <strong>Texto</strong> para escribir encima.
+                </p>
+              </div>
             </div>
           </div>
         ) : (

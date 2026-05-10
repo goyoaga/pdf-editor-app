@@ -54,13 +54,15 @@ Extrae páginas específicas o divide un PDF en múltiples archivos.
 - Soporte para PDFs de cualquier tamaño
 
 ### ✏️ Editar PDFs
-Añade anotaciones, texto, formas y firmas a tus documentos.
+Añade anotaciones, texto, firmas y utiliza el Borrador para tapar errores en tus documentos.
 
 **Características:**
-- Herramientas de anotación (texto, formas, dibujo)
+- Herramientas de anotación (texto y dibujo libre)
+- Herramienta "Ocultar Texto" (Borrador/Típex)
 - Navegación entre páginas
-- Interfaz intuitiva y responsiva
-- Descarga del PDF editado
+- Interfaz interactiva a pantalla completa
+
+> ⚠️ **Nota Técnica sobre la Edición de Texto:** FlowPDF opera de manera 100% gratuita y privada en el navegador. Por limitaciones intrínsecas del formato PDF y de las librerías *Open Source*, **no es posible editar el texto original del documento** (como si fuera un Word). Como alternativa estándar del sector, incluimos la herramienta **"Ocultar Texto"**, que te permite borrar visualmente el texto original y escribir tu nuevo texto encima. Si necesitas editar el texto interno real de forma nativa, se requiere software de pago avanzado (como Adobe Acrobat).
 
 ### 📄 Convertir DOCX a PDF
 Transforma documentos Word (.doc, .docx) a PDF manteniendo el formato.
