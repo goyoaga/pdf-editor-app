@@ -1,163 +1,27 @@
-import { useState, useRef } from "react";
-import * as pdfjsLib from "pdfjs-dist";
-import { Download, Loader2, Type, Square, Pen } from "lucide-react";
+import { HardHat, Wrench, Pen } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import UploadZone from "@/components/UploadZone";
-import { toast } from "sonner";
-
-import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
-
-// Set up PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export default function PDFEditor() {
-  const [file, setFile] = useState<File | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [pdfDoc, setPdfDoc] = useState<any>(null);
-
-  const handleFilesSelected = async (files: File[]) => {
-    if (files.length === 0) return;
-
-    const selectedFile = files[0];
-    if (selectedFile.type !== "application/pdf") {
-      toast.error("Solo se pueden editar archivos PDF");
-      return;
-    }
-
-    try {
-      setIsLoading(true);
-      const arrayBuffer = await selectedFile.arrayBuffer();
-      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-
-      setFile(selectedFile);
-      setPdfDoc(pdf);
-      setTotalPages(pdf.numPages);
-      setCurrentPage(1);
-
-      // Render first page
-      renderPage(pdf, 1);
-      toast.success("PDF cargado correctamente");
-    } catch (error) {
-      console.error("Error loading PDF:", error);
-      toast.error("Error al cargar el PDF");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const renderPage = async (pdf: any, pageNum: number) => {
-    try {
-      const page = await pdf.getPage(pageNum);
-      const viewport = page.getViewport({ scale: 1.5 });
-
-      if (canvasRef.current) {
-        canvasRef.current.width = viewport.width;
-        canvasRef.current.height = viewport.height;
-
-        const context = canvasRef.current.getContext("2d");
-        if (context) {
-          const renderContext = {
-            canvasContext: context,
-            viewport: viewport,
-          };
-          await page.render(renderContext).promise;
-        }
-      }
-    } catch (error) {
-      console.error("Error rendering page:", error);
-      toast.error("Error al renderizar la página");
-    }
-  };
-
-  const goToPage = (pageNum: number) => {
-    if (pdfDoc && pageNum >= 1 && pageNum <= totalPages) {
-      setCurrentPage(pageNum);
-      renderPage(pdfDoc, pageNum);
-    }
-  };
-
   return (
-    <div className="space-y-6">
-      <UploadZone
-        onFilesSelected={handleFilesSelected}
-        acceptedFormats={[".pdf"]}
-        multiple={false}
-      />
-
-      {file && pdfDoc && (
-        <div className="space-y-4">
-          {/* Toolbar */}
-          <div className="flex flex-wrap gap-2 p-4 bg-gray-50 rounded-lg border border-gray-200">
-            <Button
-              variant="outline"
-              size="sm"
-              className="flex items-center gap-2"
-            >
-              <Type className="w-4 h-4" />
-              Texto
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              className="flex items-center gap-2"
-            >
-              <Square className="w-4 h-4" />
-              Forma
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              className="flex items-center gap-2"
-            >
-              <Pen className="w-4 h-4" />
-              Dibujar
-            </Button>
-          </div>
-
-          {/* PDF Viewer */}
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-auto max-h-96">
-            {isLoading ? (
-              <div className="flex items-center justify-center h-64">
-                <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
-              </div>
-            ) : (
-              <canvas ref={canvasRef} className="mx-auto" />
-            )}
-          </div>
-
-          {/* Navigation */}
-          <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200">
-            <Button
-              onClick={() => goToPage(currentPage - 1)}
-              disabled={currentPage <= 1}
-              variant="outline"
-              size="sm"
-            >
-              Anterior
-            </Button>
-            <span className="text-sm text-gray-600">
-              Página {currentPage} de {totalPages}
-            </span>
-            <Button
-              onClick={() => goToPage(currentPage + 1)}
-              disabled={currentPage >= totalPages}
-              variant="outline"
-              size="sm"
-            >
-              Siguiente
-            </Button>
-          </div>
-
-          {/* Download */}
-          <Button className="w-full bg-primary hover:opacity-90 text-white">
-            <Download className="w-4 h-4 mr-2" />
-            Descargar PDF Editado
-          </Button>
-        </div>
-      )}
+    <div className="flex flex-col items-center justify-center p-8 md:p-12 text-center bg-amber-50/50 rounded-2xl border-2 border-dashed border-amber-200">
+      <div className="w-20 h-20 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+        <HardHat className="w-10 h-10" />
+      </div>
+      <h3 className="text-2xl font-black text-gray-900 mb-3">Editor Avanzado en Construcción</h3>
+      <p className="text-amber-800/80 max-w-md mx-auto mb-8 font-medium leading-relaxed">
+        Estamos desarrollando una nueva pantalla completa para que puedas firmar, dibujar y añadir textos a tus PDFs con total comodidad. ¡Estará disponible muy pronto!
+      </p>
+      
+      <div className="flex flex-wrap justify-center gap-3 opacity-60 pointer-events-none">
+        <Button variant="outline" className="gap-2 bg-white/50 border-amber-200 text-amber-900">
+          <Wrench className="w-4 h-4"/> 
+          Añadir Textos
+        </Button>
+        <Button variant="outline" className="gap-2 bg-white/50 border-amber-200 text-amber-900">
+          <Pen className="w-4 h-4"/> 
+          Firmar y Dibujar
+        </Button>
+      </div>
     </div>
   );
 }
