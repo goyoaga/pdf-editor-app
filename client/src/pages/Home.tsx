@@ -150,7 +150,7 @@ export default function Home() {
               {/* Feature 2 */}
               <div className="bg-primary text-white p-8 md:p-10 rounded-2xl flex flex-col justify-between shadow-lg shadow-primary/20 relative overflow-hidden group">
                 <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition-all" />
-                <img src="/logo-flowpdf.png" alt="Logo" className="w-12 h-12 mb-6 brightness-0 invert" />
+                <img src={`${import.meta.env.BASE_URL}logo-flowpdf.png`.replace('//', '/')} alt="Logo" className="w-12 h-12 mb-6 brightness-0 invert" />
                 <div>
                   <h3 className="text-xl font-black mb-3">Herramientas Profesionales</h3>
                   <p className="text-sm opacity-90 leading-relaxed font-medium">Gratis para siempre. Sin marcas de agua, sin límites de tamaño y sin necesidad de registro.</p>
@@ -218,7 +218,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row justify-between items-center py-12 px-4 md:px-8 w-full max-w-[1280px] mx-auto gap-8">
           <div className="flex flex-col items-center md:items-start gap-4">
             <div className="flex items-center gap-3">
-              <img src="/logo-flowpdf.png" alt="FlowPDF Logo" className="w-8 h-8 object-contain" />
+              <img src={`${import.meta.env.BASE_URL}logo-flowpdf.png`.replace('//', '/')} alt="FlowPDF Logo" className="w-8 h-8 object-contain" />
               <span className="text-lg font-black tracking-tight text-gray-900">FlowPDF</span>
             </div>
             <p className="text-sm text-muted-foreground text-center md:text-left max-w-sm font-medium leading-relaxed">

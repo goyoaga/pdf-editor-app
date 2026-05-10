@@ -10,7 +10,7 @@ export default function Header() {
         <Link href="/">
           <a className="flex items-center gap-3 group">
             <img 
-              src="/logo-flowpdf.png" 
+              src={`${import.meta.env.BASE_URL}logo-flowpdf.png`.replace('//', '/')}
               alt="FlowPDF Logo" 
               className="w-10 h-10 object-contain group-hover:scale-110 transition-transform" 
             />
