@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button";
 import UploadZone from "@/components/UploadZone";
 import { toast } from "sonner";
 
+import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+
 // Set up PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export default function PDFEditor() {
   const [file, setFile] = useState<File | null>(null);
