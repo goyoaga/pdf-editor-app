@@ -1,6 +1,14 @@
 # FlowPDF - Editor de PDF Gratuito y Open-Source
 
-![FlowPDF Logo](/logo-flowpdf.png)
+<p align="center">
+  <img src="logo-flowpdf.png" alt="FlowPDF Logo" width="160">
+</p>
+
+<p align="center">
+  <a href="https://ko-fi.com/arielgoyoaga" target="_blank">
+    <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi" />
+  </a>
+</p>
 
 > **Procesa tus documentos directamente en tu navegador. Sin servidores, sin costes, 100% privado.**
 
@@ -97,8 +105,8 @@ Crea PDFs a partir de imágenes JPG, PNG y WebP.
 
 ### Herramientas de Desarrollo
 - **Vite** - Build tool rápido
-- **pnpm** - Gestor de paquetes
-- **ESBuild** - Compilador JavaScript
+- **Vite** - Build tool rápido
+- **npm** - Gestor de paquetes
 - **Prettier** - Formateador de código
 
 ---
@@ -120,12 +128,12 @@ cd pdf-editor-app
 
 2. **Instalar dependencias**
 ```bash
-pnpm install
+npm install
 ```
 
 3. **Iniciar servidor de desarrollo**
 ```bash
-pnpm run dev
+npm run dev
 ```
 
 4. **Acceder a la aplicación**
@@ -133,11 +141,12 @@ pnpm run dev
 http://localhost:3000
 ```
 
-### Build para Producción
+### Despliegue (Build)
+Para generar los archivos listos para producción:
 ```bash
-pnpm run build
-pnpm run start
+npm run build
 ```
+Esto creará una carpeta `dist/` que puedes subir a cualquier hosting estático (GitHub Pages, Netlify, Vercel).
 
 ---
 
@@ -147,45 +156,39 @@ pnpm run start
 
 ```bash
 # Instalar dependencias
-pnpm install
+npm install
 
 # Iniciar servidor con hot reload
-pnpm run dev
+npm run dev
 
 # Compilar TypeScript
-pnpm run check
+npm run check
 
 # Formatear código
-pnpm run format
+npm run format
 
 # Build de producción
-pnpm run build
+npm run build
 ```
 
 ### Estructura de Directorios
 
 ```
 flowpdf/
-├── client/
-│   ├── public/              # Archivos estáticos
+├── client/              # Todo el código fuente de la web
+│   ├── public/          # Archivos estáticos (logo, etc.)
 │   ├── src/
-│   │   ├── components/      # Componentes React reutilizables
-│   │   ├── pages/           # Páginas principales
-│   │   ├── hooks/           # Custom React hooks
-│   │   ├── lib/             # Utilidades y helpers
-│   │   ├── contexts/        # React contexts
-│   │   ├── App.tsx          # Componente raíz
-│   │   ├── main.tsx         # Punto de entrada
-│   │   └── index.css        # Estilos globales
-│   └── index.html           # HTML principal
-├── server/
-│   └── index.ts             # Servidor Express
-├── shared/
-│   └── const.ts             # Constantes compartidas
-├── package.json
-├── tsconfig.json
-├── tailwind.config.js
-└── vite.config.ts
+│   │   ├── components/  # Componentes React (Editores, Upload, etc.)
+│   │   ├── pages/       # Home, Privacidad, etc.
+│   │   ├── hooks/       # Lógica personalizada
+│   │   ├── lib/         # Utilidades de PDF (pdf-lib)
+│   │   └── index.css    # Diseño de sistema (Stitch / Action Blue)
+│   └── index.html       # Punto de entrada HTML
+├── dist/                # Generado tras el build (listo para desplegar)
+├── logo-flowpdf.png     # Logo para GitHub
+├── package.json         # Dependencias y scripts
+├── tailwind.config.js   # Configuración de estilos
+└── vite.config.ts       # Configuración de compilación
 ```
 
 ---
@@ -193,12 +196,12 @@ flowpdf/
 ## 🎨 Diseño y Arquitectura
 
 ### Filosofía de Diseño
-FlowPDF sigue una filosofía de diseño **moderno, audaz y funcional**:
+FlowPDF sigue una filosofía de diseño **profesional, limpia y de alta fidelidad**:
 
-- **Paleta de colores**: Amarillo vibrante (#FFD700), Rojo brillante (#E63946), Blanco y Grises
-- **Tipografía**: Plus Jakarta Sans (body), Syne (headings)
-- **Elementos distintivos**: Bordes punteados rojos, alto contraste, espaciado generoso
-- **Accesibilidad**: WCAG 2.1 AA compliant
+- **Paleta de colores**: Action Blue (#3d4ad8) como color primario, Superficies Glassmorphism.
+- **Tipografía**: Inter (moderna y legible).
+- **Elementos distintivos**: Sombras suaves, desenfoques de fondo (blur) y micro-animaciones.
+- **Accesibilidad**: WCAG 2.1 AA compliant.
 
 ### Procesamiento 100% en el Cliente
 Todas las operaciones se realizan en el navegador del usuario:
@@ -413,11 +416,9 @@ copies or substantial portions of the Software.
 
 ## 📞 Contacto
 
-- **Website**: [goyoaga.github.io/pdf-editor-app/](https://goyoaga.github.io/pdf-editor-app/)
-- **GitHub**: [github.com/goyoaga/pdf-editor-app](https://github.com/goyoaga/pdf-editor-app)
+- **Website**: [arielgoyoaga.com](https://arielgoyoaga.com)
+- **GitHub**: [github.com/goyoaga](https://github.com/goyoaga)
 - **Email**: [hola@arielgoyoaga.com](mailto:hola@arielgoyoaga.com)
-- **Twitter**: [@goyoaga](https://twitter.com/goyoaga)
-- **Discord**: [Únete a nuestra comunidad](https://discord.gg/flowpdf)
 
 ---
 
