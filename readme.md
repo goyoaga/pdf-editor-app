@@ -5,9 +5,9 @@
 > **Procesa tus documentos directamente en tu navegador. Sin servidores, sin costes, 100% privado.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Stars](https://img.shields.io/github/stars/flowpdf/flowpdf?style=social)](https://github.com/flowpdf/flowpdf)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/flowpdf/flowpdf/releases)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/flowpdf/flowpdf)
+[![GitHub Stars](https://img.shields.io/github/stars/goyoaga/pdf-editor-app?style=social)](https://github.com/goyoaga/pdf-editor-app)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/goyoaga/pdf-editor-app/releases)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/goyoaga/pdf-editor-app)
 
 ---
 
@@ -114,8 +114,8 @@ Crea PDFs a partir de imágenes JPG, PNG y WebP.
 
 1. **Clonar el repositorio**
 ```bash
-git clone https://github.com/flowpdf/flowpdf.git
-cd flowpdf
+git clone https://github.com/goyoaga/pdf-editor-app.git
+cd pdf-editor-app
 ```
 
 2. **Instalar dependencias**
@@ -340,7 +340,7 @@ NODE_ENV=production
 
 Si encuentras un bug, por favor:
 
-1. Verifica que no esté reportado en [Issues](https://github.com/flowpdf/flowpdf/issues)
+1. Verifica que no esté reportado en [Issues](https://github.com/goyoaga/pdf-editor-app/issues)
 2. Crea un nuevo issue con:
    - Descripción clara del problema
    - Pasos para reproducir
@@ -413,10 +413,10 @@ copies or substantial portions of the Software.
 
 ## 📞 Contacto
 
-- **Website**: [flowpdf.com](https://flowpdf.com)
-- **GitHub**: [github.com/flowpdf/flowpdf](https://github.com/flowpdf/flowpdf)
-- **Email**: hello@flowpdf.com
-- **Twitter**: [@flowpdfapp](https://twitter.com/flowpdfapp)
+- **Website**: [goyoaga.github.io/pdf-editor-app/](https://goyoaga.github.io/pdf-editor-app/)
+- **GitHub**: [github.com/goyoaga/pdf-editor-app](https://github.com/goyoaga/pdf-editor-app)
+- **Email**: contacto@goyoaga.dev
+- **Twitter**: [@goyoaga](https://twitter.com/goyoaga)
 - **Discord**: [Únete a nuestra comunidad](https://discord.gg/flowpdf)
 
 ---
@@ -433,9 +433,9 @@ Gracias a:
 
 ## 📊 Estadísticas
 
-![GitHub Repo stars](https://img.shields.io/github/stars/flowpdf/flowpdf?style=social)
-![GitHub forks](https://img.shields.io/github/forks/flowpdf/flowpdf?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/flowpdf/flowpdf?style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/goyoaga/pdf-editor-app?style=social)
+![GitHub forks](https://img.shields.io/github/forks/goyoaga/pdf-editor-app?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/goyoaga/pdf-editor-app?style=social)
 
 ---
 
