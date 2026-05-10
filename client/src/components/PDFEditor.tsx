@@ -150,7 +150,7 @@ export default function PDFEditor() {
           </div>
 
           {/* Download */}
-          <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+          <Button className="w-full bg-primary hover:opacity-90 text-white">
             <Download className="w-4 h-4 mr-2" />
             Descargar PDF Editado
           </Button>

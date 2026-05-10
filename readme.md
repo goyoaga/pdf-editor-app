@@ -1,6 +1,6 @@
 # FlowPDF - Editor de PDF Gratuito y Open-Source
 
-![FlowPDF Logo](https://flowpdf.com/logo.png)
+![FlowPDF Logo](/logo-flowpdf.png)
 
 > **Procesa tus documentos directamente en tu navegador. Sin servidores, sin costes, 100% privado.**
 
@@ -415,7 +415,7 @@ copies or substantial portions of the Software.
 
 - **Website**: [goyoaga.github.io/pdf-editor-app/](https://goyoaga.github.io/pdf-editor-app/)
 - **GitHub**: [github.com/goyoaga/pdf-editor-app](https://github.com/goyoaga/pdf-editor-app)
-- **Email**: contacto@goyoaga.dev
+- **Email**: [hola@arielgoyoaga.com](mailto:hola@arielgoyoaga.com)
 - **Twitter**: [@goyoaga](https://twitter.com/goyoaga)
 - **Discord**: [Únete a nuestra comunidad](https://discord.gg/flowpdf)
 

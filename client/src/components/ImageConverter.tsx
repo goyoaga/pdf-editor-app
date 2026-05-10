@@ -184,7 +184,7 @@ export default function ImageConverter() {
             <Button
               onClick={convertToPDF}
               disabled={isLoading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+              className="w-full bg-primary hover:opacity-90 text-white"
             >
               {isLoading ? (
                 <>
