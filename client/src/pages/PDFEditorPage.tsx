@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
-import { ArrowLeft, ChevronLeft, ChevronRight, FileUp, Type, Pen, Download, Loader2 } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, FileUp, Type, Pen, Download, Loader2, Eraser } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import UploadZone from "@/components/UploadZone";
 import { toast } from "sonner";
@@ -21,6 +21,7 @@ export default function PDFEditorPage() {
   
   const [isRendering, setIsRendering] = useState(false);
   const [isDrawingMode, setIsDrawingMode] = useState(false);
+  const [isEraserMode, setIsEraserMode] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
   
   const pdfCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -160,25 +161,54 @@ export default function PDFEditorPage() {
     fabricInstance.current.add(text);
     fabricInstance.current.setActiveObject(text);
     setIsDrawingMode(false);
+    setIsEraserMode(false);
     fabricInstance.current.isDrawingMode = false;
   };
 
   const toggleDrawingMode = () => {
     if (!fabricInstance.current) return;
     const canvas = fabricInstance.current;
-    canvas.isDrawingMode = !canvas.isDrawingMode;
-    if (canvas.isDrawingMode) {
-      const brush = new PencilBrush(canvas);
-      brush.color = "#2563eb";
-      brush.width = 3;
-      canvas.freeDrawingBrush = brush;
-    }
-    setIsDrawingMode(canvas.isDrawingMode);
     
-    if (canvas.isDrawingMode) {
-      canvas.discardActiveObject();
-      canvas.requestRenderAll();
+    if (isDrawingMode) {
+      canvas.isDrawingMode = false;
+      setIsDrawingMode(false);
+      return;
     }
+
+    setIsDrawingMode(true);
+    setIsEraserMode(false);
+    canvas.isDrawingMode = true;
+    
+    const brush = new PencilBrush(canvas);
+    brush.color = "#2563eb";
+    brush.width = 3;
+    canvas.freeDrawingBrush = brush;
+    
+    canvas.discardActiveObject();
+    canvas.requestRenderAll();
+  };
+
+  const toggleEraserMode = () => {
+    if (!fabricInstance.current) return;
+    const canvas = fabricInstance.current;
+    
+    if (isEraserMode) {
+      canvas.isDrawingMode = false;
+      setIsEraserMode(false);
+      return;
+    }
+
+    setIsEraserMode(true);
+    setIsDrawingMode(false);
+    canvas.isDrawingMode = true;
+    
+    const brush = new PencilBrush(canvas);
+    brush.color = "#ffffff"; // Blanco puro para ocultar (típex)
+    brush.width = 20; // Más grueso
+    canvas.freeDrawingBrush = brush;
+    
+    canvas.discardActiveObject();
+    canvas.requestRenderAll();
   };
 
   const deleteSelected = () => {
@@ -328,7 +358,15 @@ export default function PDFEditorPage() {
                 onClick={toggleDrawingMode}
                 className={`gap-2 ${isDrawingMode ? "bg-blue-600 hover:bg-blue-700 text-white border-transparent" : ""}`}
               >
-                <Pen className="w-4 h-4" /> {isDrawingMode ? "Dejar de dibujar" : "Firmar / Dibujar"}
+                <Pen className="w-4 h-4" /> {isDrawingMode ? "Dejar de firmar" : "Firmar"}
+              </Button>
+              <Button 
+                variant={isEraserMode ? "default" : "outline"}
+                size="sm" 
+                onClick={toggleEraserMode}
+                className={`gap-2 ${isEraserMode ? "bg-gray-800 hover:bg-gray-900 text-white border-transparent" : ""}`}
+              >
+                <Eraser className="w-4 h-4" /> {isEraserMode ? "Dejar de borrar" : "Ocultar Texto"}
               </Button>
               <div className="w-px h-6 bg-gray-200 mx-2 hidden md:block"></div>
               <Button variant="outline" size="sm" onClick={deleteSelected} className="gap-2 text-red-600 hover:bg-red-50 hover:text-red-700 border-red-200 hidden md:flex">
