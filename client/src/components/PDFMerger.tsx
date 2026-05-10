@@ -66,7 +66,7 @@ export default function PDFMerger() {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = "merged.pdf";
+      link.download = "flowpdf_merged.pdf";
       link.click();
       URL.revokeObjectURL(url);
 

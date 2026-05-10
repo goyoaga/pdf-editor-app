@@ -78,7 +78,7 @@ export default function DocxConverter() {
       }
 
       // Download PDF
-      pdf.save(`${selectedFile.name.replace(/\.[^/.]+$/, "")}.pdf`);
+      pdf.save(`flowpdf_${selectedFile.name.replace(/\.[^/.]+$/, "")}.pdf`);
       toast.success("Archivo convertido exitosamente");
 
       // Clean up

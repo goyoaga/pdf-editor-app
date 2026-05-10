@@ -71,7 +71,7 @@ export default function PDFSplitter() {
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
-        link.download = `split_${start}-${end}.pdf`;
+        link.download = `flowpdf_split_${start}-${end}.pdf`;
         link.click();
         URL.revokeObjectURL(url);
 
@@ -88,7 +88,7 @@ export default function PDFSplitter() {
           const url = URL.createObjectURL(blob);
           const link = document.createElement("a");
           link.href = url;
-          link.download = `page_${i + 1}.pdf`;
+          link.download = `flowpdf_page_${i + 1}.pdf`;
           link.click();
           URL.revokeObjectURL(url);
         }

@@ -90,7 +90,7 @@ export default function ImageConverter() {
         pdf.addImage(image.preview, "JPEG", 10, yPosition, imgWidth, imgHeight);
       }
 
-      const fileName = `images_${new Date().getTime()}.pdf`;
+      const fileName = `flowpdf_images_${new Date().getTime()}.pdf`;
       const pdfBlob = pdf.output("blob");
 
       // Detectar si es iOS
