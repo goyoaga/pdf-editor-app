@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Privacy from "./pages/Privacy";
+import PDFEditorPage from "./pages/PDFEditorPage";
 
 // Base path for GitHub Pages
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -16,6 +17,7 @@ function Router() {
       <Switch>
         <Route path={"/"} component={Home} />
         <Route path={"/privacidad"} component={Privacy} />
+        <Route path={"/editor"} component={PDFEditorPage} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />

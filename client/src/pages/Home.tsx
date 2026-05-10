@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import {
   Merge,
   Split,
@@ -38,16 +38,25 @@ const tools = [
 
 export default function Home() {
   const [activeTool, setActiveTool] = useState<Tool>("merge");
+  const [, setLocation] = useLocation();
 
   const ActiveComponent = {
     merge: PDFMerger,
     split: PDFSplitter,
-    edit: PDFEditor,
+    edit: PDFEditor, // Keeping it here just in case, but it won't render
     docx: DocxConverter,
     image: ImageConverter,
   }[activeTool];
 
   const currentTool = tools.find(t => t.id === activeTool)!;
+
+  const handleToolClick = (toolId: string) => {
+    if (toolId === "edit") {
+      setLocation("/editor");
+    } else {
+      setActiveTool(toolId as Tool);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-surface selection:bg-primary/10">
@@ -60,7 +69,7 @@ export default function Home() {
             {tools.map((tool) => (
               <button
                 key={tool.id}
-                onClick={() => setActiveTool(tool.id as Tool)}
+                onClick={() => handleToolClick(tool.id)}
                 className={`flex items-center gap-3 px-4 py-2.5 rounded-lg font-bold transition-all duration-200 ${
                   activeTool === tool.id
                     ? "bg-primary text-on-primary shadow-sm scale-100"
